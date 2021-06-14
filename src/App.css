@@ -28,6 +28,28 @@
   color: #61dafb;
 }
 
+.car {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  border: 1px solid #ccc;
+  margin: 20px;
+  padding: 15px;
+}
+
+.car-wrapper {
+  display: flex;
+  flex-direction: row;
+
+  margin: 50px 0px;
+}
+
+hr {
+  width: 100%;
+  height: 1px;
+  background: rgb(153, 153, 153);
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
