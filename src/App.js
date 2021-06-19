@@ -6,14 +6,19 @@ import Car from './Car/Car';
 import Bike from './Bike/Bike';
 
 export default class App extends React.Component {
-  state = {
-    cars: [
-      { brand: 'Mazda', year: 2002, color: 'red' },
-      { brand: 'Toyota', year: 2009, color: 'yellow' },
-      { brand: 'Subaru', year: 2003, color: 'black' },
-    ],
-    showCars: true,
-  };
+  constructor(props) {
+    console.log('app constructor');
+    super(props);
+
+    this.state = {
+      cars: [
+        { brand: 'Mazda', year: 2002, color: 'red' },
+        { brand: 'Toyota', year: 2009, color: 'yellow' },
+        { brand: 'Subaru', year: 2003, color: 'black' },
+      ],
+      showCars: true,
+    };
+  }
 
   toggleCars = () => {
     this.setState({
@@ -40,26 +45,28 @@ export default class App extends React.Component {
     });
   }
 
+  componentWillMount() {
+    console.log('App componentWillMount');
+  }
+
+  componentDidMount() {
+    console.log('App componentDidMount');
+  }
+
   render() {
+    console.log('render');
+
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> andd save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer">
-            Learn React
-          </a>
+          <h1>{this.props.title}</h1>
 
           <div className="car-wrapper">
             {this.state.showCars &&
               this.state.cars.map((car, index) => (
                 <Car
+                  index={index}
                   key={index}
                   brand={car.brand}
                   year={car.year}
